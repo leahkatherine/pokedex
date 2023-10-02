@@ -8,46 +8,46 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 
-app.all('/campsites', (req, res, next) => {
+app.all('/pokemon', (req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     next();
 });
 
-app.get('/campsites', (req, res) => {
-    res.end('Will send all the campsites to you');
+app.get('/pokemon', (req, res) => {
+    res.end('Will send all the pokemon to you');
 });
 
-app.post('/campsites', (req, res) => {
-    res.end(`Will add the campsite: ${req.body.name} with description: ${req.body.description}`);
+app.post('/pokemon', (req, res) => {
+    res.end(`Will add the pokemon: ${req.body.name} with description: ${req.body.description}`);
 });
 
-app.put('/campsites', (req, res) => {
+app.put('/pokemon', (req, res) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /campsites');
+    res.end('PUT operation not supported on /pokemon');
 });
 
-app.delete('/campsites', (req, res) => {
-    res.end('Deleting all campsites');
+app.delete('/pokemon', (req, res) => {
+    res.end('Deleting all pokemon');
 });
 
-app.get('/campsites/:campsiteId', (req, res) => {
-    res.end(`Will send details of the campsite: ${req.params.campsiteId} to you`);
+app.get('/pokemon/:pokemonId', (req, res) => {
+    res.end(`Will send details of the pokemon: ${req.params.pokemonId} to you`);
 });
 
-app.post('/campsites/:campsiteId', (req, res) => {
+app.post('/pokemon/:pokemonId', (req, res) => {
     res.statusCode = 403;
-    res.end(`POST operation not supported on /campsites/${req.params.campsiteId}`);
+    res.end(`POST operation not supported on /pokemon/${req.params.pokemonId}`);
 });
 
-app.put('/campsites/:campsiteId', (req, res) => {
-    res.write(`Updating the campsite: ${req.params.campsiteId}\n`);
-    res.end(`Will update the campsite: ${req.body.name}
+app.put('/pokemon/:pokemonId', (req, res) => {
+    res.write(`Updating the pokemon: ${req.params.pokemonId}\n`);
+    res.end(`Will update the pokemon: ${req.body.name}
         with description: ${req.body.description}`);
 });
 
-app.delete('/campsites/:campsiteId', (req, res) => {
-    res.end(`Deleting campsite: ${req.params.campsiteId}`);
+app.delete('/pokemon/:pokemonId', (req, res) => {
+    res.end(`Deleting pokemon: ${req.params.pokemonId}`);
 });
 
 app.use(express.static(__dirname + '/public'));
