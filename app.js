@@ -43,4 +43,5 @@ module.exports = app;
 
 
 
-// left off at figuring out how to start naming these routes. read through arams text and have nucampsite open to try and compare as you build. 
+// left off at figuring out how to start naming these routes. 
+// pokemonRouter?  
